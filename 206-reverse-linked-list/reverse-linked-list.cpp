@@ -15,12 +15,11 @@ public:
         ListNode* curr = head;
         ListNode* prev = nullptr;
         ListNode* next = nullptr;
-
         while (curr != nullptr) {
-            next = curr->next;
-            curr->next = prev;
-            prev = curr;
-            curr = next;
+            next = curr->next; //preserve the next node add, so that we can reach
+            curr->next = prev; //Replace the current next with prev node address
+            prev = curr; //for the nxt node current will be the prev
+            curr = next; //move current to the next node to repeat the process
         }
 
         return prev;
